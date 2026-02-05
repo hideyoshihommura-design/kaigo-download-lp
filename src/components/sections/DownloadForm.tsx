@@ -1,11 +1,26 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Clock, Phone, Shield } from "lucide-react";
 import { downloadFormData } from "@/data/content";
 
 export function DownloadForm() {
-  const isFormConfigured = downloadFormData.formUrl !== "FORM_URL_HERE";
+  const formContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!formContainerRef.current) return;
+
+    // HubSpot form embed script
+    const script = document.createElement("script");
+    script.src = "https://js-na2.hsforms.net/forms/embed/243875500.js";
+    script.defer = true;
+    formContainerRef.current.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, []);
 
   return (
     <>
@@ -28,27 +43,14 @@ export function DownloadForm() {
               </p>
             </div>
 
-            {/* External form embed */}
-            <div className="mb-8">
-              {isFormConfigured ? (
-                <iframe
-                  src={downloadFormData.formUrl}
-                  width="100%"
-                  height="600"
-                  style={{ border: "none" }}
-                  title="資料ダウンロードフォーム"
-                />
-              ) : (
-                <div className="bg-bg-gray rounded-2xl p-8 sm:p-12 text-center">
-                  <p className="text-text-muted text-sm mb-2">
-                    外部フォームがここに埋め込まれます
-                  </p>
-                  <p className="text-text-muted text-xs">
-                    data/content.ts の <code className="bg-white px-2 py-1 rounded text-primary font-mono">formUrl</code> を
-                    HubSpotフォームやGoogleフォームのURLに差し替えてください
-                  </p>
-                </div>
-              )}
+            {/* HubSpot form embed */}
+            <div ref={formContainerRef} className="mb-8">
+              <div
+                className="hs-form-frame"
+                data-region="na2"
+                data-form-id="a6c801c7-9d9e-4bcf-94db-9b39578497e9"
+                data-portal-id="243875500"
+              />
             </div>
 
             {/* Trust signals */}

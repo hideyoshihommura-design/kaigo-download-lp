@@ -147,7 +147,6 @@ export const serviceOverviewData = {
 export const downloadFormData = {
   sectionTitle: "無料で資料をダウンロード",
   subtitle: "以下のフォームにご入力ください。入力完了後、すぐに資料をダウンロードいただけます。",
-  formUrl: "FORM_URL_HERE",
   trust: [
     "入力は30秒で完了",
     "営業電話はしません",
