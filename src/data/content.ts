@@ -191,7 +191,7 @@ export const footerData = {
   company: "ホリエモンAI学校 介護校",
   links: [
     { label: "運営会社", href: "#" },
-    { label: "プライバシーポリシー", href: "#" },
+    { label: "プライバシーポリシー", href: "https://horiemon.ai/privacypolicy" },
     { label: "特定商取引法に基づく表記", href: "https://horiemon.ai/tokushoho" },
     { label: "お問い合わせ", href: "#" },
   ],
