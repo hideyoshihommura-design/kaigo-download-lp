@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  color: #312624;
+  background: #fdfdfd;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* ===== Gradient Utilities ===== */
+.gradient-line {
+  height: 0.5rem;
+  background: linear-gradient(91deg, #D84D6E -8.2%, #0D83F5 115.17%);
+}
+
+.gradient-line-thin {
+  height: 2px;
+  background: linear-gradient(91deg, #D84D6E -8.2%, #0D83F5 115.17%);
+}
+
+.gradient-text {
+  background: linear-gradient(91deg, #D84D6E -8.2%, #0D83F5 115.17%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-underline {
+  background-image: linear-gradient(90deg, #D84D6E 0%, #0D83F5 100%);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 1px;
+  padding-bottom: 2px;
+}
+
+/* ===== Gradient Border Card ===== */
+.gradient-border-card {
+  position: relative;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.10);
+}
+
+.gradient-border-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  padding: 2px;
+  background: linear-gradient(91deg, #D84D6E -8.2%, #0D83F5 115.17%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@layer components {
+  .container-default {
+    @apply max-w-container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-article {
+    @apply max-w-article mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  /* Primary Button: gradient pink→blue */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 28px;
+    background: linear-gradient(91deg, #D84D6E -8.2%, #0D83F5 115.17%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.875rem;
+    transition: all 0.25s ease;
+    box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.10);
+    white-space: nowrap;
+  }
+
+  @media (min-width: 640px) {
+    .btn-primary {
+      padding: 14px 56px;
+      font-size: 1rem;
+    }
+  }
+
+  .btn-primary:hover {
+    box-shadow: 6px 6px 30px 0 rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px);
+  }
+
+  /* Outline Button with gradient border */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 28px;
+    background: #fff;
+    color: #312624;
+    font-weight: 700;
+    font-size: 0.875rem;
+    position: relative;
+    transition: all 0.25s ease;
+    box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.10);
+    white-space: nowrap;
+  }
+
+  @media (min-width: 640px) {
+    .btn-outline {
+      padding: 14px 56px;
+      font-size: 1rem;
+    }
+  }
+
+  .btn-outline::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    padding: 2px;
+    background: linear-gradient(91deg, #D84D6E -8.2%, #0D83F5 115.17%);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .btn-outline:hover {
+    box-shadow: 6px 6px 30px 0 rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+
+  /* LINE Button */
+  .btn-line {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 28px;
+    background: #06C755;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.875rem;
+    transition: all 0.25s ease;
+    box-shadow: 4px 4px 20px 0 rgba(6, 199, 85, 0.2);
+    white-space: nowrap;
+  }
+
+  @media (min-width: 640px) {
+    .btn-line {
+      padding: 14px 40px;
+      font-size: 1rem;
+    }
+  }
+
+  .btn-line:hover {
+    box-shadow: 6px 6px 30px 0 rgba(6, 199, 85, 0.3);
+    transform: translateY(-2px);
+  }
+
+  /* Section heading badge (purple bg) */
+  .section-heading {
+    display: inline-block;
+    background-color: #6462b2;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.5em 0.75em;
+    border-radius: 8px;
+    line-height: 1.6;
+    max-width: calc(100vw - 2rem);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  @media (min-width: 640px) {
+    .section-heading {
+      font-size: 1.4rem;
+      padding: 0.75em 1em;
+      line-height: 1.4;
+      max-width: none;
+    }
+  }
+}
+
+/* iOS zoom prevention */
+@media screen and (max-width: 640px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    font-size: 16px;
+  }
+}
+
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+::selection {
+  background-color: rgba(100, 98, 178, 0.2);
+}
