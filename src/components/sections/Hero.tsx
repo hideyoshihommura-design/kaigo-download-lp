@@ -11,8 +11,8 @@ export function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url(/kaigo-download-lp/images/hero-bg.jpg)",
-          backgroundColor: "#4a5568",
+          backgroundImage: "url(/kaigo-download-lp/images/Gemini_Generated_Image_70y5jx70y5jx70y5.png)",
+          backgroundColor: "#1a1a3e",
         }}
       >
         <div className="absolute inset-0 bg-black/50" />
