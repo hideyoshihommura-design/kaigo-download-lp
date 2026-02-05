@@ -192,7 +192,7 @@ export const footerData = {
   links: [
     { label: "運営会社", href: "#" },
     { label: "プライバシーポリシー", href: "#" },
-    { label: "特定商取引法に基づく表記", href: "#" },
+    { label: "特定商取引法に基づく表記", href: "https://horiemon.ai/tokushoho" },
     { label: "お問い合わせ", href: "#" },
   ],
   copyright: `© ${new Date().getFullYear()} ホリエモンAI学校 介護校 All Rights Reserved.`,
