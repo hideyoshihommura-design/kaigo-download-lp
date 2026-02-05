@@ -12,8 +12,12 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-bg border-b border-gray-100">
       <div className="container-default flex items-center justify-between h-16 sm:h-20">
         {/* Logo */}
-        <a href="#" className="font-bold text-sm sm:text-base text-text">
-          {headerData.logo}
+        <a href="#">
+          <img
+            src="/kaigo-download-lp/images/Untitled1.jpg"
+            alt={headerData.logo}
+            className="h-8 sm:h-10 w-auto"
+          />
         </a>
 
         {/* Desktop Nav */}
